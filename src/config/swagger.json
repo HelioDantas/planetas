@@ -1,13 +1,9 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "0.0.1",
+    "version": "1.0.0",
     "title": "Planetas",
-    "description": "Esta é uma api de crud de planetas",
-    "license": {
-      "name": "GitLab",
-      "url": "https://gitlab.com/celsodev/cl-gerenciado-de-email.git"
-    }
+    "description": "Esta é uma api de crud de planetas"
   },
   "host": "localhost:3000",
   "basePath": "/planetas",
