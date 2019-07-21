@@ -1,0 +1,163 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.0.1",
+    "title": "Planetas",
+    "description": "Esta é uma api de crud de planetas",
+    "license": {
+      "name": "GitLab",
+      "url": "https://gitlab.com/celsodev/cl-gerenciado-de-email.git"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/planetas",
+  "tags": [
+    {
+      "name": "Planeta",
+      "description": "API for planets"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "tags": [
+          "Planeta"
+        ],
+        "description": "criar um novo planeta",
+        "parameters": [
+          {
+            "name": "planeta",
+            "in": "body",
+            "description": "criar um novo planeta",
+            "schema": {
+              "$ref": "#/definitions/Planeta"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Novo planeta criado",
+            "schema": {
+              "$ref": "#/definitions/Planeta"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Planeta"
+        ],
+        "summary": "Todos o planetas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Planetas"
+            }
+          }
+        }
+      }
+    },
+    "/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "buscar um novo usuario",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Planeta"
+        ],
+        "summary": "Get user with given ID",
+        "responses": {
+          "200": {
+            "description": "Planeta",
+            "schema": {
+              "$ref": "#/definitions/Planeta"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta um Planeta",
+        "tags": [
+          "Planeta"
+        ],
+        "responses": {
+          "200": {
+            "description": "Planeta deletado",
+            "schema": {
+              "$ref": "#/definitions/Planeta"
+            }
+          }
+        }
+      }
+    },
+    "/nome/{nome}": {
+      "parameters": [
+        {
+          "name": "nome",
+          "in": "path",
+          "required": true,
+          "description": "nome do planeta",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Planeta"
+        ],
+        "summary": "Planeta",
+        "responses": {
+          "200": {
+            "description": "Buscar planeta pelo nome",
+            "schema": {
+              "$ref": "#/definitions/Planeta"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Planeta": {
+      "required": [
+        "nome",
+        "clima",
+        "terreno"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string"
+        },
+        "clima": {
+          "type": "string"
+        },
+        "terreno": {
+          "type": "string"
+        }
+      }
+    },
+    "Planetas": {
+      "type": "array",
+      "$ref": "#/definitions/Planeta"
+    }
+  }
+}
